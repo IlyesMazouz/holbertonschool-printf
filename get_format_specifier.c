@@ -13,7 +13,11 @@ int get_format_specifier(const char c, va_list args)
 
 	format_specifier charachter[] = {
 			{'c', print_char},
-			{'s', print_string}
+			{'s', print_string},
+			{'%', print_percent},
+			{'!', print_exclamation},
+			{'K', print_percent_k},
+
 	};
 
 	while (charachter[i].ch)
