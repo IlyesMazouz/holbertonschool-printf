@@ -39,4 +39,38 @@ int print_string(va_list args)
 	return (count);
 }
 
+/**
+*print_percent - a function that outputs a percent sign
+*@args: variable number of arguments
+*Return: value of count
+*/
+int print_percent(va_list args)
+{
+	(void)args;
+	putchar('%');
+	return (1);
+}
+
+/**
+*print_exclamation - a function that outputs an exclamation point
+*@args: variable number of arguments
+*Return: value of count
+*/
+int print_exclamation(va_list args)
+{
+	(void)args;
+	putchar('!');
+	return (1);
+}
+
+/**
+*print_percent_k - a function that outputs the string "%K"
+*@args: variable number of arguments
+*Return: value of count
+*/
+int print_percent_k(va_list args)
+{
+	(void)args;
+	return (printf("%%K"));
+}
 
