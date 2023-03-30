@@ -17,6 +17,7 @@ int get_format_specifier(const char c, va_list args)
 			{'%', print_percent},
 			{'!', print_exclamation},
 			{'K', print_percent_k},
+			{'\n', print_newline},
 
 	};
 
