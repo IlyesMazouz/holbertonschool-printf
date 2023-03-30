@@ -13,18 +13,27 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-	if (!format || (*format == '%' && !*(format + 1)))
-	{
-		return (-1);
-	}
+	if (!format || *format == '\0')
+	return (-1);
 	while (*format)
 	{
 	if (*format == '%')
 	{
 	format++;
-	if (*format == '\0')
+	if (*format == '%')
+	{
+	putchar('%');
+	count++;
+	}
+	else if (*format == '\0')
+	{
+	va_end(args);
 	return (-1);
+	}
+	else
+	{
 	count += get_format_specifier(*format, args);
+	}
 	}
 	else
 	{
@@ -36,4 +45,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-
