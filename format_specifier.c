@@ -73,4 +73,3 @@ int print_percent_k(va_list args)
 	(void)args;
 	return (printf("%%K"));
 }
-
