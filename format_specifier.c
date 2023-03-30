@@ -69,6 +69,5 @@ int print_percent_k(va_list args)
 int print_exclamation(va_list args)
 {
 	(void)args;
-	putchar('!');
-	return (1);
+	return (printf("%!"));
 }
