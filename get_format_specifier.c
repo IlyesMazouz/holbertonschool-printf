@@ -3,7 +3,8 @@
 /**
 *get_format_specifier - a function that specifies a format charachter
 *@c: a constant char
-*@va_list: a type used to access a variable number of arguments
+*@args: variable number of arguments
+*Return: (0)
 */
 
 int get_format_specifier(const char c, va_list args)
