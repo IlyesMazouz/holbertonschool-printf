@@ -6,6 +6,12 @@
 #include <string.h>
 #include <stdarg.h>
 
+/**
+*struct format - data structure for the printf
+*@ch: char representing the format specifier character
+*@f: function pointer to the corresponding print function for the specifier
+*/
+
 typedef struct format
 {
 	char ch;
