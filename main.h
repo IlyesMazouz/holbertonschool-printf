@@ -22,5 +22,8 @@ int get_format_specifier(const char c, va_list args);
 int _printf(const char *format, ...);
 int print_char(va_list args);
 int print_string(va_list args);
+int print_percent(va_list args);
+int print_exclamation(va_list args);
+int print_percent_k(va_list args);
 
 #endif
