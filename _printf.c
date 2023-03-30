@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
-*_printf - creating a customized printf function
-*@format: a constant char
-*Return: value of count
+*_printf - Customized printf function
+*@format: constant char
+*Return: Number of characters printed
 */
 
 int _printf(const char *format, ...)
 {
-	int count = 0, specifier = 0;
+	int count = 0;
 
 	va_list args;
 
@@ -19,27 +19,21 @@ int _printf(const char *format, ...)
 	}
 	while (*format)
 	{
-	if (specifier == 0)
+	if (*format == '%')
 	{
-	if (*format == '%' && strlen(format) > 1)
-		specifier = 1;
-	else if (*format == '%' && strlen(format) == 1)
-	{
-		return (-1);
+	format++;
+	if (*format == '\0')
+	return (-1);
+	count += get_format_specifier(*format, args);
 	}
 	else
 	{
-		putchar(*format);
+	putchar(*format);
 	count++;
-	}
-	}
-	else if (specifier == 1)
-	{
-	count += printf(format, args);
-	specifier = 0;
 	}
 	format++;
 	}
 	va_end(args);
 	return (count);
 }
+
