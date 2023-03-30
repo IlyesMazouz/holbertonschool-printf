@@ -8,34 +8,41 @@
 
 int _printf(const char *format, ...)
 {
-	int i = 0, count = 0, specifier = 0;
+	int count = 0;
 
 	va_list args;
 
 	va_start(args, format);
-	if (format == NULL || (format[i] == '%' && strlen(format) == 1))
-		return (-1);
+	if (!format || *format == '\0')
+	return (-1);
 	while (*format)
 	{
-	if (specifier == 0)
+	if (*format == '%')
 	{
-	if (*format == '%' && strlen(format) > 1)
-		specifier = 1;
-	else if (*format == '%' && strlen(format) == 1)
+	format++;
+	if (*format == '%')
+	{
+	putchar('%');
+	count++;
+	}
+	else if (*format == '\0')
+	{
+	va_end(args);
 	return (-1);
+	}
+	else
+	{
+	count += get_format_specifier(*format, args);
+	}
+	}
 	else
 	{
 	putchar(*format);
 	count++;
 	}
-	}
-	else if (specifier == 1)
-	{
-	count += printf(format, args);
-	specifier = 0;
-	}
 	format++;
 	}
 	va_end(args);
-	return (specifier);
+	return (count);
 }
+
