@@ -2,21 +2,23 @@
 
 /**
 *print_char - a function that outputs a charachter
-*@va_list: a type used to access a variable number of arguments
+*@args: variable number of arguments
+*Return: value of count
 */
 
 int print_char(va_list args)
 {
-        int count = 0;
+	int count = 0;
 
-        putchar(va_arg(args, int));
-        count++;
-        return (count);
+	putchar(va_arg(args, int));
+	count++;
+	return (count);
 }
 
 /**
 *print_string - a function that outputs a string
-*@va_list: a type used to access a variable number of arguments
+*@args: variable number of arguments
+*Return: value of count
 */
 
 int print_string(va_list args)
@@ -24,7 +26,17 @@ int print_string(va_list args)
 	int count = 0;
 
 	char *s = va_arg(args, char*);
-	fputs(s, stdout);
-	count += strlen(s);
+
+	if (s == NULL)
+	{
+		s = "(null)";
+	}
+	while (*s != '\0')
+	{
+		putchar(*s++);
+	count++;
+	}
 	return (count);
 }
+
+
