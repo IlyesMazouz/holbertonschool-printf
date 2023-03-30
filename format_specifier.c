@@ -52,14 +52,12 @@ int print_percent(va_list args)
 }
 
 /**
-*print_exclamation - a function that outputs an exclamation point
+*print_percent_k - a function that outputs the string "%K"
 *@args: variable number of arguments
-*Return: value of count
+*Return: the number of characters printed
 */
-int print_exclamation(va_list args)
+int print_percent_k(va_list args)
 {
 	(void)args;
-	putchar('!');
-	return (1);
+	return (printf("%%K"));
 }
-
