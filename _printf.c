@@ -1,50 +1,42 @@
 #include "main.h"
-#include "stdio.h"
-#include "stdarg.h"
-#include "string.h"
 
 /**
 *_printf - creating a customized printf function
 *@format: a constant char
 *Return: value of count
 */
+
 int _printf(const char *format, ...)
 {
-	int count = 0;
+	int count = 0, specifier = 0;
 
 	va_list args;
 
 	va_start(args, format);
 	if (!format || (*format == '%' && !*(format + 1)))
+	{
 		return (-1);
+	}
 	while (*format)
 	{
-	if (*format == '%')
+	if (specifier == 0)
 	{
-	format++;
-	if (*format == 'c')
+	if (*format == '%' && strlen(format) > 1)
+		specifier = 1;
+	else if (*format == '%' && strlen(format) == 1)
 	{
-	char c = va_arg(args, int);
-		putchar(c);
-	count++;
-	}
-	else if (*format == 's')
-	{
-	char *s = va_arg(args, char*);
-
-	fputs(s, stdout);
-	count += strlen(s);
-	}
-	else if (*format == '%')
-	{
-		putchar ('%');
-	count++;
-	}
+		return (-1);
 	}
 	else
 	{
-	putchar(*format);
+		putchar(*format);
 	count++;
+	}
+	}
+	else if (specifier == 1)
+	{
+	count += printf(format, args);
+	specifier = 0;
 	}
 	format++;
 	}
