@@ -17,7 +17,8 @@ int get_format_specifier(const char c, va_list args)
 			{'%', print_percent},
 			{'K', print_percent_k},
 			{'!', print_exclamation},
-
+			{'d', print_integer},
+			{'i', print_integer}
 	};
 
 	while (charachter[i].ch)
