@@ -25,5 +25,6 @@ int print_string(va_list args);
 int print_percent(va_list args);
 int print_percent_k(va_list args);
 int print_exclamation(va_list args);
+int print_integer(va_list args);
 
 #endif
