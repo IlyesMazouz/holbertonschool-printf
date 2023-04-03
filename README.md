@@ -37,13 +37,18 @@ Hello! my name is ilyes
 
 ALL OF THE FUNCTIONS USED ON THIS PROJECT:
 
+
 _printf.c: This is a function that loops through the characters of the format string and prints them to the standard output depending on the charachter after the '%' sign.
+
 
 format_specifier.c: This function defines several functions that are used by the _printf function to handle different format specifiers.
 
+
 get_format_specifier.c: This function uses a format_specifier structure to associate a format character with a function that handles it.
 
+
 print_integer.c: This function takes a variable number of arguments and prints an integer.
+
 
 main.h: This is a header file that contains a char representing a format specifier character and a function pointer to the corresponding print function for the specifier.
 
